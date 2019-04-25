@@ -4,9 +4,9 @@ class ContentTemplate extends React.Component
 {
     render() {
         return (
-            <div className="row">
+            <section>
                 { this.props.children }
-            </div>
+            </section>
         )
     }
 }

@@ -2,9 +2,9 @@ import React from 'react'
 import { Route, Switch } from "react-router-dom"
 
 //screens
-import Dashboard from '../Screen/Dashboard/Main'
-import Repository from '../Screen/Repository/Main'
-import Setting from '../Screen/Setting/Main'
+import Dashboard from '../Packages/Dashboard/Main'
+import Repository from '../Packages/Repository/Main'
+import Setting from '../Packages/Setting/Main'
 
 const Handler = () => (
     <Switch>

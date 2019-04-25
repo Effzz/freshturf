@@ -9,7 +9,7 @@ class Main extends React.Component{
                 subtitle="List Repository"
             >
                 <div className="col-xl-12">
-                    ini kontennya repository
+                    Repository content
                 </div>
             </BaseTemplate>
         )

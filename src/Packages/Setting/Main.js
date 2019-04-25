@@ -9,7 +9,7 @@ class Main extends React.Component{
                 subtitle="Change your setting here"
             >
                 <div className="col-xl-12">
-                    ini kontennya setting
+                   Setting content
                 </div>
             </BaseTemplate>
         )

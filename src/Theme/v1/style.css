@@ -1,5 +1,28 @@
+.toggled-circle{
+    display: none;
+}
+
+.toggled .toggled-circle{
+    background: #fff;
+    border-radius: 50%;
+    color: #4e73df;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0;
+    width: 35px;
+}
+
 .sidebar-dark .nav-item .nav-link i {
     margin-right: 0.5rem;
+}
+
+.sidebar .nav-item .nav-link.active{
+    color: #fff;
+    font-weight: 700;
+}
+
+.sidebar-dark .nav-item .nav-link.active i{
+    color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -8,6 +31,149 @@
     }   
 }
 
+a.sidebar-brand.left-brand,
+a.sidebar-brand.left-brand:hover{
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
 #content{
     padding-top: 20px;
+}
+
+/* Dashboard Page */
+.wrap-profile{
+    float: left;
+    width: 100%;
+}
+
+.wrap-profile .photo{
+    float: left;
+    width: 80px;
+}
+
+.wrap-profile .photo img{
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(178,190,205,.9);
+    float: left;
+    margin-left: 15px;
+    width: 80px;
+}
+
+.profile{
+    float: right;
+    margin: 5px 0 0 50px;
+    width: calc(100% - 130px);
+}
+
+.profile .profile-row{
+    float: left;
+    width: 100%;
+}
+
+.profile .profile-row .value.name{
+    font-weight: bold;
+}
+
+.repositories{
+    float: left;
+    width: 100%;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+.item{
+    background: #f8f5f5;
+    border-radius: 5px;
+    clear: both;
+    float: left;
+    margin-bottom: 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.item span{
+    float: left;
+    padding: 5px 10px;
+}
+
+.repositories .item button{
+    background: #7f9dfa;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    float: right;
+}
+.commits{
+    font-size: 14px;
+}
+
+.commits .item span.repository{
+    color: #7f9dfa;
+    font-weight: bold;
+}
+
+.commits .item span.commit-message{
+    color: #85b469;
+    font-style: italic;
+}
+
+.commits .wrap-buttons{
+    float: right;
+}
+
+.commits .wrap-buttons button{
+    background: #85c561;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    min-width: 80px;
+}
+
+.commits .wrap-buttons button.view-repository{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #7f9dfa;
+}
+
+.card-commit-history{
+    position: relative;
+}
+.commit-pagination{
+    clear: both;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+
+.commit-pagination button{
+    background: none;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(178,190,205,.9);
+    margin-right: 10px;
+    text-align: center;
+    width: 28px;
+}
+
+.commit-pagination button.disabled{
+    color: #eaeaea;
+}
+
+.commit-pagination button:focus{
+    outline: none;
+}
+
+.commit-pagination button i{
+    float: left;
+    line-height: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.commit-pagination button:last-child{
+    margin-right: 0;
 }
