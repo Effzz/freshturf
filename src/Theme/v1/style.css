@@ -100,6 +100,13 @@ button:hover{
     padding: 5px 10px;
 }
 
+.repositories .item span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 254px;
+}
+
 .repositories .item button{
     background: #7f9dfa;
     border: none;
@@ -111,18 +118,31 @@ button:hover{
     font-size: 14px;
 }
 
+.commits .item span.date{
+    float: left;
+    width: 130px;
+}
+
 .commits .item span.repository{
     color: #7f9dfa;
+    float: left;
     font-weight: bold;
+    width: 130px;
 }
 
 .commits .item span.commit-message{
     color: #85b469;
     font-style: italic;
+    overflow: hidden;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 420px);
 }
 
 .commits .wrap-buttons{
     float: right;
+    width: 160px;
 }
 
 .commits .wrap-buttons button{

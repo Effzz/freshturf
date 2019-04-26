@@ -9,7 +9,7 @@ class Main extends React.Component {
         return (
             <BaseTemplate title="Dashboard" subtitle="Github Repository Dashboard">
                 <div className="row">
-                    <div className="col-lg-3">
+                    <div className="col-lg-4">
                         <div className="row">
                             <ProfileCard { ...this.props } />
                             <RepositoryCard { ...this.props } />
