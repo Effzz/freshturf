@@ -8,13 +8,11 @@ export function SettingReducer(state = initialState, action) {
         case CHANGESETTING:
             window.localStorage.setItem('userData', JSON.stringify(
                 {
-                    currentUser: action.currentUser,
-                    token: action.token
+                    currentUser: action.currentUser
                 }
             ))
             return {
-                currentUser: action.currentUser,
-                token: action.token
+                currentUser: action.currentUser
             }
         default:
             return state
