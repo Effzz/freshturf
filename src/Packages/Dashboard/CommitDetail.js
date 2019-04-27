@@ -38,7 +38,7 @@ class CommitDetail extends React.Component {
         ]
         return (
             <BaseTemplate title="Dashboard - Commit Detail" subtitle="Information about the commit" {...this.props} >
-                <div className="col-lg-6">
+                <div className="col-lg-9">
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
                             <h6 className="m-0 font-weight-bold text-primary">Commit : {commitId}</h6>
