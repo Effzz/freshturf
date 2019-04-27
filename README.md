@@ -18,7 +18,7 @@ Consume GraphQL from Github API 4.0 in reactjs
 
 ## Available Scripts
 
-For Development:
+For Development / Demo:
 
 ### `npm start`
 
