@@ -1,4 +1,5 @@
-Efendy's Freshturf Assignment.
+## Efendy's Freshturf Assignment
+
 Consume GraphQL from Github API 4.0 in reactjs
 
 ## Available Scripts
