@@ -30,7 +30,6 @@ class LeftMenu extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         let toggledClass = ''
         if(this.state.toggled === true){
             toggledClass = 'toggled'

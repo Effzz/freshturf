@@ -107,12 +107,17 @@ button:hover{
     width: 254px;
 }
 
-.repositories .item button{
+.repositories .item a.button-browse{
     background: #7f9dfa;
     border: none;
     color: #fff;
     padding: 5px 10px;
     float: right;
+}
+
+.repositories .item a.button-browse:hover{
+    opacity: 0.9;
+    text-decoration: none;
 }
 
 .repositories .view-more-link{
