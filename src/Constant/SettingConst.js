@@ -18,7 +18,8 @@ export const initialState = {
 
 export const settingMapStateToProps = state => {
     return {
-        currentUser: state.SettingReducer.currentUser
+        currentUser: state.SettingReducer.currentUser,
+        token: state.SettingReducer.token
     }
 }
 

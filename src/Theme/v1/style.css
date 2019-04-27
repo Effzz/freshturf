@@ -230,8 +230,17 @@ button:hover{
 /* repository page */
 
 /* toast */
-.toast-notify .Toastify__toast{
+.toast-notify .Toastify__toast.Toastify__toast--success{
     background: rgb(162, 214, 162);
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    min-height: auto;
+}
+
+.toast-notify .Toastify__toast.Toastify__toast--warning{
+    background: #e07676;
     color: #fff;
     border-radius: 20px;
     padding: 10px 20px;

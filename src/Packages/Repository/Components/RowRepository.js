@@ -19,7 +19,7 @@ class RowRepository extends React.Component{
                 <span className="language">{ langName }</span>
                 <span className="fork-count">{ repoObj.forkCount } forks</span>
                 <span className="title">{ repoObj.nameWithOwner }</span>
-                <a className="button-browse" href={ repoObj.url } target="_blank" rel="noopener noreferrer">Browse</a>
+                <a title="Browse Repository" className="button-browse" href={ repoObj.url } target="_blank" rel="noopener noreferrer">Browse</a>
             </div>
         )
     }

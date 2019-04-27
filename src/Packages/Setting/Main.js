@@ -33,7 +33,7 @@ class Main extends React.Component{
         const { currentUser, token } = this.state
         e.preventDefault()
         this.props.onChangeSetting(currentUser, token)
-        toast('Configuration Updated')
+        toast.success('Configuration Updated')
     }
     
     render() {
@@ -41,6 +41,7 @@ class Main extends React.Component{
             <BaseTemplate 
                 title="Setting"
                 subtitle="Change your setting here"
+                { ...this.props }
             >
                 <div className="col-xl-6">
                     <div className="card shadow mb-4">

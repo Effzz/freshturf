@@ -1,3 +1,3 @@
-export const token = '42f34b9054ae2abb025c2652f7f1b1fe69902322'
+export const token = 'a2a3833cc5a7291b3e50b89dfbe93b83d370b41a'
 export const fetchDefault = 'taylorotwell'
 export const endpoint = 'https://api.github.com/graphql'

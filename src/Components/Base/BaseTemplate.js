@@ -5,30 +5,34 @@ import ContentTemplate from './ContentTemplate'
 import { Redirect } from 'react-router-dom'
 
 // Apollo
-import { token, endpoint } from '../../Core/GithubConfig'
+import { endpoint } from '../../Core/GithubConfig'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 class BaseTemplate extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      redirectTo: null
+      redirectTo: null,
+      errorCount: 0
     }
-    console.log(this.props)
+    
     this.client = new ApolloClient({
       uri: endpoint,
       request: operation => {
           operation.setContext({
               headers: {
-                  authorization: `Bearer ${ token }`
+                  authorization: `Bearer ${ this.props.token }`
               }
           })
       },
       onError: err => {
+        if(this.state.errorCount === 0){
+          toast.warn('Unauthorized Personal Access Token')
+        }        
         this.setState({
-          redirectTo: '/setting'
+          errorCount: 1
         })
       }
     })

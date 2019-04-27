@@ -15,6 +15,7 @@ class Main extends React.Component {
             currentUser: this.props.currentUser,
             langOpt: [
                 { value: 'all', label: 'All Languages' },
+                { value: 'css', label: 'CSS' },
                 { value: 'elixir', label: 'Elixir' },
                 { value: 'dockerfile', label: 'DockerFile' },
                 { value: 'html', label: 'HTML' },
@@ -71,7 +72,7 @@ class Main extends React.Component {
     render() {
         const { currentUser } = this.state
         return (
-            <BaseTemplate title="Repositories" subtitle="List Repository">
+            <BaseTemplate title="Repositories" subtitle="List Repository" { ...this.props }>
                 <div className="row">
                     <div className="col-lg-3">
                         <div className="card shadow mb-4">

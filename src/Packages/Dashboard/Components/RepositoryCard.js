@@ -77,7 +77,7 @@ class RepositoryCard extends React.Component{
                                                     return(
                                                         <div className="item" key={ index }>
                                                             <span>{ repoObj.nameWithOwner }</span>
-                                                            <a className="button-browse" href={ repoObj.url } target="_blank" rel="noopener noreferrer">Browse</a>
+                                                            <a className="button-browse" title="Browse Repository" href={ repoObj.url } target="_blank" rel="noopener noreferrer">Browse</a>
                                                         </div>
                                                     )
                                                 })
