@@ -43,8 +43,8 @@ class RepositoryCard extends React.Component{
                     }
 
                     const objLength = Object.getOwnPropertyNames(data).length
-                    let repos = null
-                    if(data.user){
+                    let repos = []
+                    if(data && data.user){
                         repos = data.user.contributionsCollection.commitContributionsByRepository
                     }
                     
