@@ -1,8 +1,15 @@
-## Efendy's Freshturf Assignment
+# Efendy's Freshturf Assignment
 
 Consume GraphQL from Github API 4.0 in reactjs
 
-## Available Pages
+### Introduction
+> This is my first time using API in GRAPHQL Style, some data could be wrong, because of the graphql query that I couldn't find or solve, but I tried as best as I could for the graphql-reactjs assignment, any little advice would be very appreaciated :).
+
+### Personal Access Token
+> Need to generate personal access token to fetch data in the application. 
+https://github.com/settings/tokens/new, the token can be set up in Setting Page
+
+### Available Pages
 
 1. **Dashboard**
 > Show 5 contributed repositories, and recent commits
@@ -14,9 +21,9 @@ Consume GraphQL from Github API 4.0 in reactjs
 > Show current user's repository, can be filtered by language
 
 4. **Setting**
-> Application setting for username to fetch
+> Application setting for username and personal access token to fetch
 
-## Available Scripts
+### Available Scripts
 
 For Development / Demo:
 
