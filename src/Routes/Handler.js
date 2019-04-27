@@ -6,6 +6,7 @@ import Dashboard from '../Packages/Dashboard/Main'
 import Repository from '../Packages/Repository/Main'
 import Setting from '../Packages/Setting/Main'
 import CommitDetail from '../Packages/Dashboard/CommitDetail'
+import PageNotFound from '../Packages/Misc/PageNotFound'
 
 const Handler = () => (
     <Switch>
@@ -13,6 +14,7 @@ const Handler = () => (
         <Route exact path="/repository" component={ (props) => <Repository { ...props }/> } />
         <Route exact path="/setting" component={ (props) => <Setting { ...props }/> } />
         <Route exact path="/commit/:owner/:name/:commitId" component={ (props) => <CommitDetail { ...props }/> } />
+        <Route component={ PageNotFound } />
     </Switch>
 )
 

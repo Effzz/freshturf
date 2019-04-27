@@ -1,6 +1,5 @@
 import React from 'react'
 import BaseTemplate from '../../Components/Base/BaseTemplate'
-import { token } from '../../Core/GithubConfig'
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { settingMapStateToProps, settingMapDispatchToProps } from '../../Constant/SettingConst'
@@ -10,7 +9,7 @@ class Main extends React.Component{
         super(props)
         this.state = {
             currentUser: this.props.currentUser,
-            token: token
+            token: this.props.token
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -78,7 +77,10 @@ class Main extends React.Component{
                                     />
                                     <p>
                                         <small>
-                                            <em>required for every graphql request</em>
+                                            <em>
+                                                required for every graphql request. 
+                                                <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer">Generate Now</a>
+                                            </em>
                                         </small>
                                     </p>
                                 </div>

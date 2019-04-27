@@ -29,7 +29,7 @@ class BaseTemplate extends React.Component{
       },
       onError: err => {
         if(this.state.errorCount === 0){
-          toast.warn('Unauthorized Personal Access Token')
+          toast.warn('Unauthorized Personal Token. Please Configure your setting')
         }        
         this.setState({
           errorCount: 1

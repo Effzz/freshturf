@@ -1,3 +1,7 @@
+a:hover{
+    text-decoration: none;
+}
+
 .toggled-circle{
     display: none;
 }
@@ -132,7 +136,7 @@ button:hover{
 
 .commits .item span.date{
     float: left;
-    width: 130px;
+    width: 180px;
 }
 
 .commits .item span.repository{
@@ -149,7 +153,7 @@ button:hover{
     padding-right: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: calc(100% - 420px);
+    width: calc(100% - 470px);
 }
 
 .commits .wrap-buttons{
@@ -157,18 +161,26 @@ button:hover{
     width: 160px;
 }
 
-.commits .wrap-buttons button{
+.commits .wrap-buttons a{
     background: #85c561;
     border: none;
     color: #fff;
+    display: block;
     padding: 5px 10px;
+    text-align: center;
     min-width: 80px;
 }
 
-.commits .wrap-buttons button.view-repository{
+.commits .wrap-buttons a.view-repository{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     background: #7f9dfa;
+    display: block;
+    float: left;
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center;
+    min-width: 80px
 }
 
 .card-commit-history{
