@@ -4,17 +4,17 @@ Consume GraphQL from Github API 4.0 in reactjs
 
 ## Available Pages
 
-1. Dashboard
-Show 5 contributed repositories, and recent commits
+1. **Dashboard**
+> Show 5 contributed repositories, and recent commits
 
-2. Commit Detail
-Details of selected commit
+2. **Commit Detail**
+> Details of selected commit
 
-3. Repository
-Show current user's repository, can be filtered by language
+3. **Repository**
+> Show current user's repository, can be filtered by language
 
-4. Setting
-Application setting for username to fetch
+4. **Setting**
+> Application setting for username to fetch
 
 ## Available Scripts
 
