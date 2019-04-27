@@ -5,10 +5,6 @@ Consume GraphQL from Github API 4.0 in reactjs
 ### Introduction
 > This is my first time using API in GRAPHQL Style, some data could be wrong, because of the graphql query that I couldn't find or solve, but I tried as best as I could for the graphql-reactjs assignment, any little advice would be very appreaciated :).
 
-### Personal Access Token
-> If graphql failed to fetch we need to generate personal access token to fetch data in the application. 
-https://github.com/settings/tokens/new, the token can be set up in Setting Page
-
 ### Available Pages
 
 1. **Dashboard**

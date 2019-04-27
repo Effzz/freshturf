@@ -65,25 +65,6 @@ class Main extends React.Component{
                                         </small>
                                     </p>
                                 </div>
-                                <div className="form-group">
-                                    <label>Personal Access Token</label>
-                                    <input 
-                                        className="form-control" 
-                                        value={ this.state.token } 
-                                        onChange={ (e) => {
-                                            this.handleChange(e, 'token')
-                                        }}
-                                        required
-                                    />
-                                    <p>
-                                        <small>
-                                            <em>
-                                                required for every graphql request. 
-                                                <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer">Generate Now</a>
-                                            </em>
-                                        </small>
-                                    </p>
-                                </div>
                                 <button type="submit" className="btn btn-primary" onSubmit={ this.handleSubmit }>Submit</button>
                             </form>
                         </div>
