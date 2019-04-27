@@ -10,15 +10,18 @@ class CommitCard extends React.Component {
 
         this.state = {
             currentUser: this.props.currentUser,
+            indexPage: 1,
+            afterCursor: null,
+            beforeCursor: null,
             limit: 20
         }
 
         this.commitQuery = gql`
-        query GetUserCommits($login: String!, $limit:Int!) {
+        query GetUserCommits($login: String!, $limit:Int!, $after:String, $before:String) {
             user(login: $login) {
                 id,
                 name,
-                commitComments(first: $limit){
+                commitComments(first: $limit, after: $after, before: $before){
                     pageInfo {
                         endCursor
                         startCursor,
@@ -49,20 +52,42 @@ class CommitCard extends React.Component {
         this.handlePagination = this.handlePagination.bind(this)
     }
 
-    handlePagination() {
-        this.setState({
-            limit: 10
-        })
+    handlePagination(e, type, cursor) {
+        e.preventDefault()
+        const CurrIndexPage = this.state.indexPage
+        const newIndexPageNext = CurrIndexPage + 1
+        const newIndexPagePrev = CurrIndexPage - 1
+        if(type === 'next'){
+            this.setState({
+                afterCursor: cursor,
+                beforeCursor: null,
+                indexPage: newIndexPageNext
+            })
+        }else{
+            if(newIndexPagePrev <= 1){
+                this.setState({
+                    afterCursor: null,
+                    beforeCursor: null,
+                    indexPage: 1
+                })
+            }else{
+                this.setState({
+                    afterCursor: null,
+                    beforeCursor: cursor,
+                    indexPage: newIndexPagePrev
+                })
+            }
+        }
     }
 
     render() {
-        const { currentUser, limit } = this.state
+        const { currentUser, limit, afterCursor, beforeCursor } = this.state
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ]
         return (
             <div className="col-lg-8">
-                <Query query={this.commitQuery} variables={{ login: currentUser, limit: limit }}>
+                <Query query={this.commitQuery} variables={{ login: currentUser, limit: limit, after: afterCursor, before: beforeCursor }}>
                     {({ data, loading, error }) => {
                         let message = null
                         if (loading) {
@@ -88,12 +113,18 @@ class CommitCard extends React.Component {
                             <div className="card shadow mb-4 card-commit-history">
                                 <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 className="m-0 font-weight-bold text-primary">Recent Commits</h6>
-                                    <Paginate pageInfo={ pageInfo } handlePagination={this.handlePagination} />
+                                    <Paginate 
+                                        pageInfo={ pageInfo } 
+                                        handlePagination={ this.handlePagination }
+                                        firstPageCursor={ this.state.firstPageCursor }
+                                        setFirstPageCursor={ this.setFirstPageCursor }
+                                        paginateStarted={ this.state.paginateStarted }
+                                    />
                                 </div>
                                 <div className="card-body">
                                     <div className="commits">
                                         {
-                                            objLength > 0 ?
+                                            !loading && objLength > 0 ?
                                                 commits.map((data, index) => {
                                                     let row = data.node.commit
                                                     let currDate = new Date(row.pushedDate)

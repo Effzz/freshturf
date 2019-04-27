@@ -136,14 +136,20 @@ button:hover{
 
 .commits .item span.date{
     float: left;
-    width: 180px;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .commits .item span.repository{
     color: #7f9dfa;
     float: left;
     font-weight: bold;
-    width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
 }
 
 .commits .item span.commit-message{
@@ -153,7 +159,7 @@ button:hover{
     padding-right: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: calc(100% - 470px);
+    width: calc(100% - 480px);
 }
 
 .commits .wrap-buttons{
@@ -240,6 +246,14 @@ button:hover{
     width: calc(100% - 345px);
 }
 /* repository page */
+
+/* detail commit page */
+.btn-back{
+    clear: both;
+    margin-top: 20px;
+    min-width: 90px;
+}
+/* detail commit page */
 
 /* toast */
 .toast-notify .Toastify__toast.Toastify__toast--success{

@@ -7,7 +7,7 @@ class Paginate extends React.Component {
             return null
         }
 
-        const { hasNextPage, hasPreviousPage } = pageInfo
+        const { hasNextPage, hasPreviousPage, endCursor, startCursor } = pageInfo
         let classPrev = ''
         let disabledPrev = false
         let classNext = ''
@@ -24,10 +24,18 @@ class Paginate extends React.Component {
 
         return(
             <div className="commit-pagination">
-                <button className={ `prev ${ classPrev }` } disabled={ disabledPrev }>
+                <button 
+                    className={ `prev ${ classPrev }` } 
+                    disabled={ disabledPrev }
+                    onClick={ e => this.props.handlePagination(e, 'prev', startCursor) }
+                >
                     <i className="fas fa-angle-left"></i>
                 </button>
-                <button className={ `next ${ classNext }` }  disabled={ disabledNext }>
+                <button 
+                    className={ `next ${ classNext }` }  
+                    disabled={ disabledNext }
+                    onClick={ e => this.props.handlePagination(e, 'next', endCursor) }
+                >
                     <i className="fas fa-angle-right"></i>
                 </button>
             </div>
