@@ -3,36 +3,44 @@ import { NavLink } from 'react-router-dom'
 import { Query } from "react-apollo"
 import { gql } from "apollo-boost"
 
-const reposQuery = gql`
-query GetRepositories($login: String!, $maxRepo:Int!) {
-    user(login: $login) {
-        id,
-        name,
-        contributionsCollection {
-            commitContributionsByRepository(maxRepositories: $maxRepo){
-                contributions (first:1, orderBy:{field: OCCURRED_AT, direction: DESC}) {
-                    nodes{
-                        repository {
-                            id,
-                            name,
-                            nameWithOwner,
-                            url,
-                            primaryLanguage{
-                                name
+class RepositoryCard extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+            currentUser: this.props.currentUser,
+            maxRepo: 5
+        }
+
+        this.reposQuery = gql`
+            query GetRepositories($login: String!, $maxRepo:Int!) {
+                user(login: $login) {
+                    id,
+                    name,
+                    contributionsCollection {
+                        commitContributionsByRepository(maxRepositories: $maxRepo){
+                            contributions (first:1, orderBy:{field: OCCURRED_AT, direction: DESC}) {
+                                nodes{
+                                    repository {
+                                        id,
+                                        name,
+                                        nameWithOwner,
+                                        url,
+                                        primaryLanguage{
+                                            name
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
-            }
-        }
+            }` 
     }
-}`
-
-class RepositoryCard extends React.Component{
     render(){
-        
+        const { currentUser, maxRepo } = this.state
         return(
-            <Query query={reposQuery} variables={{ login: "taylorotwell", maxRepo: 5}}>
+            <Query query={ this.reposQuery } variables={{ login: currentUser, maxRepo: maxRepo}}>
                 {({ data, loading, error }) => {
                     let message = null
                     if(loading){
@@ -42,7 +50,11 @@ class RepositoryCard extends React.Component{
                         message = 'error fetch...'
                     }
 
-                    const objLength = Object.getOwnPropertyNames(data).length
+                    let objLength = 0
+                    if(data){
+                        objLength = Object.getOwnPropertyNames(data).length
+                    }
+
                     let repos = []
                     if(data && data.user){
                         repos = data.user.contributionsCollection.commitContributionsByRepository

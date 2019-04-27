@@ -4,6 +4,8 @@ import ProfileCard from './Components/ProfileCard'
 import RepositoryCard from './Components/RepositoryCard'
 import CommitCard from './Components/CommitCard'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { settingMapStateToProps, settingMapDispatchToProps } from '../../Constant/SettingConst'
 
 class Main extends React.Component {
     constructor(){
@@ -24,8 +26,9 @@ class Main extends React.Component {
         if(this.state.redirectTo){
             return(<Redirect to={ this.state.redirectTo }></Redirect>)
         }
+        
         return (
-            <BaseTemplate title="Dashboard" subtitle="Github Repository Dashboard">
+            <BaseTemplate title="Dashboard" subtitle="Github Repository Dashboard" { ...this.props }>
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="row">
@@ -40,4 +43,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main
+export default connect(settingMapStateToProps, settingMapDispatchToProps)(Main)

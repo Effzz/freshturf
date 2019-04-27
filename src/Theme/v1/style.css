@@ -228,3 +228,14 @@ button:hover{
     width: calc(100% - 345px);
 }
 /* repository page */
+
+/* toast */
+.toast-notify .Toastify__toast{
+    background: rgb(162, 214, 162);
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    min-height: auto;
+}
+/* toast */

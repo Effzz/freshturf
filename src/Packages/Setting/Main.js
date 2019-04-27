@@ -1,7 +1,41 @@
 import React from 'react'
 import BaseTemplate from '../../Components/Base/BaseTemplate'
+import { token } from '../../Core/GithubConfig'
+import { connect } from 'react-redux'
+import { toast } from 'react-toastify'
+import { settingMapStateToProps, settingMapDispatchToProps } from '../../Constant/SettingConst'
 
 class Main extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            currentUser: this.props.currentUser,
+            token: token
+        }
+
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange(e, type){
+        if(type === 'user'){
+            this.setState({
+                currentUser: e.target.value
+            })
+        }else if(type === 'token'){
+            this.setState({
+                token: e.target.value
+            })
+        }
+    }
+
+    handleSubmit(e){
+        const { currentUser, token } = this.state
+        e.preventDefault()
+        this.props.onChangeSetting(currentUser, token)
+        toast('Configuration Updated')
+    }
+    
     render() {
         return (
             <BaseTemplate 
@@ -11,23 +45,43 @@ class Main extends React.Component{
                 <div className="col-xl-6">
                     <div className="card shadow mb-4">
                         <div className="card-header ">
-                            <h6 className="m-0 font-weight-bold text-primary">Repositories</h6>
+                            <h6 className="m-0 font-weight-bold text-primary">Setting</h6>
                         </div>
                         <div className="card-body">
-                            <form>
+                            <form onSubmit={ this.handleSubmit }>
                                 <div className="form-group">
                                     <label>Fetch Username</label>
-                                    <input className="form-control" />
+                                    <input 
+                                        className="form-control" 
+                                        value={ this.state.currentUser } 
+                                        onChange={ (e) => {
+                                            this.handleChange(e, 'user')
+                                        }}
+                                        required
+                                    />
+                                    <p>
+                                        <small>
+                                            <em>username used to fetch data</em>
+                                        </small>
+                                    </p>
                                 </div>
                                 <div className="form-group">
-                                    <label>Auth username</label>
-                                    <input className="form-control" />
+                                    <label>Personal Access Token</label>
+                                    <input 
+                                        className="form-control" 
+                                        value={ this.state.token } 
+                                        onChange={ (e) => {
+                                            this.handleChange(e, 'token')
+                                        }}
+                                        required
+                                    />
+                                    <p>
+                                        <small>
+                                            <em>required for every graphql request</em>
+                                        </small>
+                                    </p>
                                 </div>
-                                <div className="form-group">
-                                    <label>Auth Password</label>
-                                    <input className="form-control" />
-                                </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-primary" onSubmit={ this.handleSubmit }>Submit</button>
                             </form>
                         </div>
                     </div>  
@@ -37,4 +91,4 @@ class Main extends React.Component{
     }
 }
 
-export default Main
+export default connect(settingMapStateToProps, settingMapDispatchToProps)(Main)

@@ -8,6 +8,7 @@ class Main extends React.Component {
                 placeholder="Select Language.."
                 options={ this.props.options }
                 onChange={ this.props.onChange }
+                value={ this.props.value }
             />
         )
     }
