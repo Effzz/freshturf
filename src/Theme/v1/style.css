@@ -114,6 +114,13 @@ button:hover{
     padding: 5px 10px;
     float: right;
 }
+
+.repositories .view-more-link{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
 .commits{
     font-size: 14px;
 }
@@ -197,3 +204,22 @@ button:hover{
 .commit-pagination button:last-child{
     margin-right: 0;
 }
+
+/* repository page */
+.repository-list{
+    font-size: 14px;
+}
+.repository-list .item .language{
+    width: 90px;
+}
+
+.repository-list .item .fork-count{
+    width: 180px;
+}
+
+.repository-list .item .title{
+    color: #7f9dfa;
+    font-weight: bold;
+    width: calc(100% - 345px);
+}
+/* repository page */

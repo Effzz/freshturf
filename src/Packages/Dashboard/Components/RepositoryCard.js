@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 class RepositoryCard extends React.Component{
     render(){
@@ -30,6 +31,7 @@ class RepositoryCard extends React.Component{
                                 <span>laravel/nova-dusk-suite</span>
                                 <button>Browse</button>
                             </div>
+                            <NavLink className="view-more-link" to="/repository">view more</NavLink>
                         </div>
                     </div>
                 </div>
